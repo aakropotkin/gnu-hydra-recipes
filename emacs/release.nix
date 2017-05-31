@@ -111,6 +111,14 @@ in
 	       "--with-gif=no" "--with-tiff=no"
 	     ])
 	  ++ stdenv.lib.optional (stdenv.isDarwin) "CC=gcc";
+
+	configurePhase = ''
+	  echo "configureFlags: $configureFlags"
+	  if ! $configureScript $configureFlags; then
+	    cat config.log
+	    false
+	  fi
+	'';
       };
 
       coverage = pkgs: {
