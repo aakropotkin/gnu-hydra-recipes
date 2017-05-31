@@ -93,9 +93,8 @@ in
 	'';
       } ;
 
-      ## Really only want to explicitly add gcc on darwin.
       build = pkgs: {
-	buildInputs = with pkgs; [ gcc ] ++ buildInputsFrom pkgs;
+	buildInputs = buildInputsFrom pkgs;
 	doCheck = false;
 	configureFlags =
 	  with pkgs;
@@ -111,7 +110,7 @@ in
 	     [ "--with-xpm=no" "--with-jpeg=no" "--with-png=no"
 	       "--with-gif=no" "--with-tiff=no"
 	     ])
-	  ++ stdenv.lib.optional (stdenv.isDarwin) "CC=gcc";
+	  ++ stdenv.lib.optional (stdenv.isDarwin) "CC=clang";
 
 	## http://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/setup.sh
 	## Could we use the postConfigure hook instead of this?
