@@ -112,9 +112,12 @@ in
 	     ])
 	  ++ stdenv.lib.optional (stdenv.isDarwin) "CC=gcc";
 
+	## http://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/setup.sh
+	## Could we use the postConfigure hook instead of this?
 	configurePhase = ''
-	  echo "configureFlags: $configureFlags"
-	  if ! $configureScript $configureFlags; then
+	  configureFlags="--prefix=$prefix $configureFlags"
+	  echo "configure flags: $configureFlags"
+	  if ! ./configure $configureFlags; then
 	    cat config.log
 	    false
 	  fi
