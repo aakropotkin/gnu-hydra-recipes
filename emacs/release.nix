@@ -94,7 +94,8 @@ in
       } ;
 
       build = pkgs: {
-	buildInputs = buildInputsFrom pkgs;
+	buildInputs = (buildInputsFrom pkgs)
+	  ++ stdenv.lib.optional (stdenv.isDarwin) [ pkgs.gcc ];
 	doCheck = false;
 	configureFlags =
 	  with pkgs;
@@ -110,7 +111,7 @@ in
 	     [ "--with-xpm=no" "--with-jpeg=no" "--with-png=no"
 	       "--with-gif=no" "--with-tiff=no"
 	     ])
-	  ++ stdenv.lib.optional (stdenv.isDarwin) "CC=${pkgs.gcc}/bin/gcc";
+	  ++ stdenv.lib.optional (stdenv.isDarwin) "CC=gcc";
 
 	## http://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/setup.sh
 	## Could we use the postConfigure hook instead of this?
