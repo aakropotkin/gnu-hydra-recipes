@@ -93,9 +93,9 @@ in
 	'';
       } ;
 
+      ## Really only want to explicitly add gcc on darwin.
       build = pkgs: {
-	buildInputs = (buildInputsFrom pkgs)
-	  ++ stdenv.lib.optional (stdenv.isDarwin) [ pkgs.gcc ];
+	buildInputs = with pkgs; [ gcc ] ++ buildInputsFrom pkgs;
 	doCheck = false;
 	configureFlags =
 	  with pkgs;
