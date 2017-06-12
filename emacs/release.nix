@@ -128,7 +128,7 @@ in
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 	buildInputs = with pkgs; [ bazaar perl python gnupg gnupg1 git mercurial ] ++ buildInputsFrom pkgs;
 	doCheck = true;
-	configureFlags = "--enable-profiling --enable-check-lisp-object-type" ;
+	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules" ;
 	checkPhase = ''
           make check-expensive
           mkdir -p "$out/nix-support"
