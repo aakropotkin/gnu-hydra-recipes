@@ -130,7 +130,7 @@ in
 	doCheck = true;
 	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules" ;
 	checkPhase = ''
-          make check-expensive
+          make check-expensive EMACS_HYDRA_CI=1
           mkdir -p "$out/nix-support"
           find test -name '*.log' > test.tmp
           if test -s test.tmp; then
