@@ -34,7 +34,7 @@ let
     license = "LGPLv2+";
 
     # Those who will receive email notifications.
-    maintainers = [ "ludo@gnu.org" ]
+    maintainers = [ ]
       ++ (if glibcHurd != false
           then [ "Hurd <commit-hurd@gnu.org>" ]
           else []);

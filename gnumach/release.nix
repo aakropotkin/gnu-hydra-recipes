@@ -36,9 +36,7 @@ let
 
     # Those who will receive email notifications.
     maintainers =
-      [ "Hurd <commit-hurd@gnu.org>"
-        "Ludovic Courtès <ludo@gnu.org>"
-      ];
+      [ "Hurd <commit-hurd@gnu.org>" ];
   };
 
   pkgs = import nixpkgs {};

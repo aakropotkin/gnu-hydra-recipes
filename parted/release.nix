@@ -37,7 +37,7 @@ let
     homepage = http://www.gnu.org/software/parted/;
     license = "GPLv3+";
 
-    maintainers = [ pkgs.lib.maintainers.ludo ];
+    maintainers = [ ];
 
     # GNU Parted requires libuuid, which is part of util-linux-ng.
     platforms = pkgs.lib.platforms.linux;

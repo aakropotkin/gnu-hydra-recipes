@@ -120,7 +120,7 @@ let
     ];
 
   makeIso =
-    { module, description, maintainers ? [ "ludo" ]}:
+    { module, description, maintainers ? [ ]}:
     { system ? "i686-linux" }:
 
     let

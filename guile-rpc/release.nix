@@ -35,7 +35,7 @@ let
 
     license = "LGPLv3+";
     homepage = http://www.gnu.org/software/guile-rpc/;
-    maintainers = [ pkgs.lib.maintainers.ludo ];
+    maintainers = [ ];
   };
 
   jobs = {

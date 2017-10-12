@@ -48,7 +48,7 @@ let
 
     license = "LGPLv3+";
 
-    maintainers = [ pkgs.stdenv.lib.maintainers.ludo ];
+    maintainers = [ ];
   };
 
   inherit (pkgs) releaseTools;

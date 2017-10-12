@@ -33,7 +33,7 @@ let
     license = "GPLv3+";
 
     # Email notifications are sent to maintainers.
-    maintainers = [ "build-inetutils@gnu.org" "ludo@gnu.org" ];
+    maintainers = [ "build-inetutils@gnu.org" ];
   };
 
   buildInputsFrom = pkgs: with pkgs;
