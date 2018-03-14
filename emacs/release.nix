@@ -126,7 +126,7 @@ in
 
       coverage = pkgs: {
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	buildInputs = with pkgs; [ bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ] ++ buildInputsFrom pkgs;
+	buildInputs = with pkgs; [ bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ruby ] ++ buildInputsFrom pkgs;
 	doCheck = true;
 	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules" ;
 	checkPhase = ''
