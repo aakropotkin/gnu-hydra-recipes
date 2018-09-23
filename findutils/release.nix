@@ -26,13 +26,13 @@ let
     description = "GNU Findutils, a program to find files";
 
     longDescription =
-      '' The GNU Find Utilities are the basic directory searching utilities
+      '' The GNU Findutils are the basic directory searching utilities
          of the GNU operating system. These programs are typically used in
          conjunction with other programs to provide modular and powerful
          directory search and file locating capabilities to other commands.
       '';
 
-    homepage = http://savannah.gnu.org/projects/findutils;
+    homepage = https://www.gnu.org/software/findutils;
 
     license = "GPLv3+";
 
@@ -49,17 +49,18 @@ let
 	name = "findutils-tarball";
 	src = findutilsSrc;
 	buildInputs =
-          [ automake111x gettext gperf bison groff git
+          [ automake gettext gperf bison groff git
             texinfo xz
             cvs # for `autopoint'
           ];
 	autoconfPhase =
-          # `gnulib-tool' wants write access to the Gnulib directory, e.g.,
-          # to create `./build-aux/arg-nonnull.h.tmp'.  Thus we have to copy
-          # the whole Gnulib tree in a writable place.
-	  '' cp -rv "${gnulib}" ../gnulib
-             chmod -R u+w ../gnulib
-             sh ./import-gnulib.sh -d ../gnulib
+	  ''
+	     # Tell bootstrap not to download po files, because that
+	     # would make the build non-hermetic.  Contrariwise we
+	     # allow bootstrap to use git to set up the gnulib module,
+	     # so that we get exactly the version configured (in
+	     # findutils git) for the submodule.
+             ./bootstrap --no-bootstrap-sync --copy --skip-po
 	  '';
         inherit meta succeedOnFailure keepBuildDirectory;
       };
