@@ -109,7 +109,7 @@ in
 	   else
 	     [ "--with-xpm=no" "--with-jpeg=no" "--with-png=no"
 	       "--with-gif=no" "--with-tiff=no"
-	     ])
+	     ]);
 
 	## http://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/setup.sh
 	## Could we use the postConfigure hook instead of this?
