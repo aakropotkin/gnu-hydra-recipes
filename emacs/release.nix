@@ -55,7 +55,7 @@ let
          [ gtkLibs.gtk librsvg acl dbus gnutls gpm libselinux imagemagick
            libpng libjpeg libungif libtiff libxml2 ])
 
-    ++ stdenv.lib.optional stdenv.isDarwin xcodebuild
+    ++ stdenv.lib.optional stdenv.isDarwin pkgs.xcbuild
 
     # Fallback for non-GNU systems.
     ++ (stdenv.lib.optional (!stdenv.isLinux) xlibs.libXaw);
