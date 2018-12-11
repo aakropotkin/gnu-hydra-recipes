@@ -35,7 +35,7 @@ let
     ];
   };
 
-  buildInputs = pkgs: with pkgs; [gettext help2man texinfo git gperf perl];
+  buildInputs = pkgs: with pkgs; [gettext help2man texinfo git gperf perl pkgconfig];
 in
   import ../gnu-jobs.nix {
     name = "datamash";

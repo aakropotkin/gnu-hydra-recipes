@@ -51,7 +51,7 @@ let
     ];
   };
 
-  buildInputsFromPkgs = pkgs : with pkgs; [ncurses boehmgc perl pkgconfig];
+  buildInputsFromPkgs = pkgs : with pkgs; [ncurses boehmgc perl pkgconfig help2man];
 in
   import ../gnu-jobs.nix {
     name = "zile";
