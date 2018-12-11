@@ -125,11 +125,11 @@ in
 
       coverage = pkgs: {
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	buildInputs = with pkgs; [ git ] ++ buildInputsFrom pkgs;
+	buildInputs = with pkgs; [ bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
 	doCheck = true;
-	configureFlags = "--without-all --without-x --without-libgmp" ;
+	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules" ;
 	checkPhase = ''
-          make check EMACS_HYDRA_CI=1 TEST_BACKTRACE_LINE_LENGTH=150 TEST_LOAD_EL=no SUMMARIZE_TESTS=25 V=1
+          make check-expensive EMACS_HYDRA_CI=1 TEST_BACKTRACE_LINE_LENGTH=150 TEST_LOAD_EL=no SUMMARIZE_TESTS=25
           mkdir -p "$out/nix-support"
           find test -name '*.log' > test.tmp
           if test -s test.tmp; then
