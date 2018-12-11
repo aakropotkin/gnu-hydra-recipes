@@ -127,7 +127,7 @@ in
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 	buildInputs = with pkgs; [ bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
 	doCheck = true;
-	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules" ;
+	configureFlags = "--enable-profiling --enable-check-lisp-object-type" ;
 	checkPhase = ''
           make check EMACS_HYDRA_CI=1 TEST_BACKTRACE_LINE_LENGTH=150 TEST_LOAD_EL=no SUMMARIZE_TESTS=25 V=1
           mkdir -p "$out/nix-support"
