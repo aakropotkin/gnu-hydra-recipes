@@ -58,7 +58,7 @@ in
     customEnv = {
       tarball = pkgs: {
         buildInputs = with pkgs; [
-          gettext automake113x autoconf texinfo help2man perl git
+          gettext automake111x autoconf texinfo help2man perl git
         ];
       } ;
     };

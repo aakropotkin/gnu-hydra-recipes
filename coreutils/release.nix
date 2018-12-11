@@ -132,7 +132,7 @@ let
       pkgs.releaseTools.nixBuild {
         name = "coreutils-manual";
         src = jobs.tarball;
-        buildInputs = buildInputsFrom pkgs ++ [ pkgs.texinfo pkgs.texLive ];
+        buildInputs = buildInputsFrom pkgs ++ [ pkgs.texinfo pkgs.texlive.combined.scheme-basic ];
         doCheck = false;
 
         buildPhase = "make html pdf";

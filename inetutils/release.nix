@@ -108,7 +108,7 @@ let
         name = "inetutils-manual";
         src = jobs.tarball;
         buildInputs = (buildInputsFrom pkgs)
-          ++ [ pkgs.texinfo pkgs.texLive ];
+          ++ [ pkgs.texinfo pkgs.texlive.combined.scheme-basic ];
 
         buildPhase = "make -C doc html pdf";
         doCheck = false;

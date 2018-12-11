@@ -46,7 +46,7 @@ let
   inherit (pkgs) releaseTools;
 
   buildInputsFrom = pkgs: with pkgs;
-    [ gettext_0_17 texinfo perl ];
+    [ gettext texinfo perl ];
 
   succeedOnFailure = true;
   keepBuildDirectory = true;
