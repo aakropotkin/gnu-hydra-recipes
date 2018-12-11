@@ -125,7 +125,7 @@ in
 
       coverage = pkgs: {
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	buildInputs = with pkgs; [ bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
+	buildInputs = with pkgs; [ git ] ++ buildInputsFrom pkgs;
 	doCheck = true;
 	configureFlags = "--enable-profiling --enable-check-lisp-object-type" ;
 	checkPhase = ''
