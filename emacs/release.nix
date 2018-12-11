@@ -127,7 +127,7 @@ in
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 	buildInputs = with pkgs; [ git ] ++ buildInputsFrom pkgs;
 	doCheck = true;
-	configureFlags = "--without-all --without-x" ;
+	configureFlags = "--without-all --without-x --without-libgmp" ;
 	checkPhase = ''
           make check EMACS_HYDRA_CI=1 TEST_BACKTRACE_LINE_LENGTH=150 TEST_LOAD_EL=no SUMMARIZE_TESTS=25 V=1
           mkdir -p "$out/nix-support"
