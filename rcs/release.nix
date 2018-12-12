@@ -55,7 +55,6 @@ in
     systems = [
       "x86_64-linux"
       "i686-linux"
-      "i686-solaris"
       "x86_64-darwin"
     ];
 
