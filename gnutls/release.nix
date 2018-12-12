@@ -215,7 +215,7 @@ let
         installPhase =
           '' make -C doc install-html install-pdf
 
-             ensureDir "$out/nix-support"
+             mkdir -p "$out/nix-support"
              echo "doc manual $out/share/doc/gnutls/gnutls.html" >> "$out/nix-support/hydra-build-products"
              echo "doc-pdf manual $out/share/doc/gnutls/gnutls.pdf" >> "$out/nix-support/hydra-build-products"
              echo "doc manual $out/share/doc/gnutls/gnutls-guile.html" >> "$out/nix-support/hydra-build-products"

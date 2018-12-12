@@ -140,7 +140,7 @@ let
         installPhase =
           '' make install-html-am install-pdf-am
 
-             ensureDir "$out/nix-support"
+             mkdir -p "$out/nix-support"
              echo "doc manual $out/share/doc/coreutils/coreutils.html" >> "$out/nix-support/hydra-build-products"
              echo "doc-pdf manual $out/share/doc/coreutils/coreutils.pdf" >> "$out/nix-support/hydra-build-products"
           '';

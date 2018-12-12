@@ -161,10 +161,10 @@ let
 
            git diff baseline > 00-glibc-hurd.patch
 
-           ensureDir "$out"
+           mkdir -p "$out"
            mv -v [0-9]*.patch "$out"
 
-           ensureDir "$out/nix-support"
+           mkdir -p "$out/nix-support"
            for patch in "$out/"*.patch
            do
              echo "file patch $patch" >> \
@@ -237,7 +237,7 @@ let
         postDist =
           ''
              cd "../$sourceRoot"
-             ensureDir "$out/tarballs"
+             mkdir -p "$out/tarballs"
              mv -v glibc-*.tar.{bz2,gz,xz} "$out/tarballs"
           '';
 

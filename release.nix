@@ -162,7 +162,7 @@ let
 	  passthru = { inherit config; };
 	}
 	''
-	  ensureDir $out/nix-support
+	  mkdir -p $out/nix-support
 	  echo "file iso" "$iso/iso/"*.iso* >> "$out/nix-support/hydra-build-products"
 	'';
 

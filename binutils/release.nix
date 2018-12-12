@@ -66,7 +66,7 @@ let
         distPhase =
           ''
              make -f src-release "binutils.tar.bz2"
-             ensureDir "$out/tarballs"
+             mkdir -p "$out/tarballs"
              mv -v binutils*.bz2 "$out/tarballs"
           '';
       };

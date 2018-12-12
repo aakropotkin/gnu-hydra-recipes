@@ -106,7 +106,7 @@ let
           '' make -C doc install
              cp -v doc/bashref.{pdf,html} "$out/share/doc/bash"
 
-             ensureDir "$out/nix-support"
+             mkdir -p "$out/nix-support"
              echo "doc manual $out/share/doc/bash/bashref.html" >> "$out/nix-support/hydra-build-products"
              echo "doc-pdf manual $out/share/doc/bash/bashref.pdf" >> "$out/nix-support/hydra-build-products"
           '';
