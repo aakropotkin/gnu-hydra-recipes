@@ -112,7 +112,7 @@ in
 	     ])
 	  ++
 	  (if stdenv.isDarwin then
-	     [ "--without-ns" ]
+	     [ "--without-ns" "--with-gnutls=no" ]
 	   else
 	     [ "" ]);
 
