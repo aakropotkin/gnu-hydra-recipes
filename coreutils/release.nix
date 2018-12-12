@@ -136,7 +136,7 @@ let
         buildInputs = buildInputsFrom pkgs ++ [ pkgs.texinfo pkgs.texlive.combined.scheme-basic ];
         doCheck = false;
 
-        buildPhase = "make html pdf";
+        buildPhase = "make all html pdf";
         installPhase =
           '' make install-html-am install-pdf-am
 
