@@ -97,21 +97,22 @@ let
         inherit meta succeedOnFailure keepBuildDirectory;
       });
 
-    xbuild_gnu =
-      # Cross build to GNU.
-      let pkgs = import nixpkgs {
-            crossSystem = crossSystems.i586_pc_gnu;
-          };
-      in
-      (pkgs.releaseTools.nixBuild {
-        name = "coreutils" ;
-        src = jobs.tarball;
-        buildInputs = [ pkgs.gmp ];
-        nativeBuildInputs = with pkgs; [ perl xz ];
-        configureFlags = [ "--enable-install-program=arch,hostname" ];
-        doCheck = false;
-        inherit meta succeedOnFailure keepBuildDirectory;
-      }).crossDrv;
+      ## Disabled 2018/12 due to hydra error "Unknown kernel: pc".
+#    xbuild_gnu =
+#      # Cross build to GNU.
+#      let pkgs = import nixpkgs {
+#            crossSystem = crossSystems.i586_pc_gnu;
+#          };
+#      in
+#      (pkgs.releaseTools.nixBuild {
+#        name = "coreutils" ;
+#        src = jobs.tarball;
+#        buildInputs = [ pkgs.gmp ];
+#        nativeBuildInputs = with pkgs; [ perl xz ];
+#        configureFlags = [ "--enable-install-program=arch,hostname" ];
+#        doCheck = false;
+#        inherit meta succeedOnFailure keepBuildDirectory;
+#      }).crossDrv;
 
     coverage =
       pkgs.releaseTools.coverageAnalysis {
