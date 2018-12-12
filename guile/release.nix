@@ -187,9 +187,7 @@ let
           texinfo
           xz lzip
           gperf                            # for Gnulib's iconv-related stuff
-          (texLiveAggregationFun {
-            paths = [ texLive texLiveCMSuper ];
-          })
+          texlive.combined.scheme-full
         ] ++ buildInputsFrom pkgs;
 
         # "make dist" needs to generate Texinfo files in `doc/ref' using the
