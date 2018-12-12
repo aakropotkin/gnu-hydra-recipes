@@ -130,9 +130,9 @@ in
 
       coverage = pkgs: {
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	buildInputs = with pkgs; [ gcc6 bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
+	buildInputs = with pkgs; [ gcc5 bazaar perl python gnupg gnupg1 git mercurial lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
 	doCheck = true;
-	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules CC=${pkgs.gcc6}/bin/gcc" ;
+	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules CC=${pkgs.gcc5}/bin/gcc" ;
 	checkPhase = ''
           make check-expensive EMACS_HYDRA_CI=1 TEST_BACKTRACE_LINE_LENGTH=150 TEST_LOAD_EL=no SUMMARIZE_TESTS=25
           mkdir -p "$out/nix-support"
