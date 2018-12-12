@@ -148,9 +148,9 @@ in
 	'';
       };
 
-      manual = pkgs: {
+      build_doc = pkgs: {
         buildInputs = (buildInputsFrom pkgs)
-          ++ [ pkgs.texinfo pkgs.texLive ];
+          ++ [ pkgs.texinfo pkgs.texlive.combined.scheme-basic ];
 	doCheck = false;
         buildPhase = "make docs";
         installPhase = ''
