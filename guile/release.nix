@@ -381,22 +381,22 @@ let
     #          "--with-libiconv-prefix=${xpkgs.libiconv.crossDrv}"
     #        ]);
 
-    xbuild_mipsel_linux_gnu =
-      # Cross build to `mipsel-linux-gnu' (Ben Nanonote).
-      makeCrossBuild "x86_64-linux" crossSystems.mipsel_nanonote_linux_gnu
-        (xpkgs: [ ]);
-
-    xbuild_mips_linux_gnu =
-      # Cross build to `mips-linux-gnu' (big endian).
-      makeCrossBuild "x86_64-linux"
-        (crossSystems.mipsel_nanonote_linux_gnu
-         //
-         {
-           bigEndian = true;
-           config = "mips-unknown-linux-gnu";
-           float = "hard";
-         })
-        (xpkgs: [ ]);
+#    xbuild_mipsel_linux_gnu =
+#      # Cross build to `mipsel-linux-gnu' (Ben Nanonote).
+#      makeCrossBuild "x86_64-linux" crossSystems.mipsel_nanonote_linux_gnu
+#        (xpkgs: [ ]);
+#
+#    xbuild_mips_linux_gnu =
+#      # Cross build to `mips-linux-gnu' (big endian).
+#      makeCrossBuild "x86_64-linux"
+#        (crossSystems.mipsel_nanonote_linux_gnu
+#         //
+#         {
+#           bigEndian = true;
+#           config = "mips-unknown-linux-gnu";
+#           float = "hard";
+#         })
+#        (xpkgs: [ ]);
   }
 
   //
