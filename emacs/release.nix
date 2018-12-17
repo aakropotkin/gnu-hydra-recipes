@@ -71,7 +71,7 @@ in
 
       tarball = pkgs: {
 	# FIXME Move --enable-check-lisp-object-type here from coverage?
-	configureFlags = "--without-all";
+	configureFlags = "--without-all --without-x";
 	buildInputs = with pkgs; [ texinfo ncurses pkgconfig perl git ];
 
         # patches = [ ./bug11251.patch ];
