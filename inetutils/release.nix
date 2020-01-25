@@ -46,6 +46,8 @@ let
   configureFlagsFor = pkgs:
     [ "--with-ncurses-include-dir=${pkgs.ncurses}/include"
       "--with-shishi=${pkgs.shishi}"
+      "--enable-ipv4"
+      "--enable-ipv6"
     ];
 
   pkgs = import nixpkgs {};
