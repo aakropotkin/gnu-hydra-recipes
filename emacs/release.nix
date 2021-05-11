@@ -87,7 +87,7 @@ in
 
 	distPhase = ''
 	  make info all
-	  ./make-dist --tar --tests --no-update --no-check
+	  ./make-dist --tar --no-update --no-check
 	  mkdir -p $out/tarballs
 	  cp -pvd *.tar.gz $out/tarballs
 	'';
