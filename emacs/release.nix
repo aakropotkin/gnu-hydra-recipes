@@ -130,7 +130,7 @@ in
 
       coverage = pkgs: {
 	LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
-	buildInputs = with pkgs; [ gcc48 gnused bazaar perl python gnupg git mercurial lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
+	buildInputs = with pkgs; [ gcc48 gnused bazaar perl python gnupg git mercurial subversion cvs lcms2 jansson ruby gmp m17n_lib libotf ] ++ buildInputsFrom pkgs;
 	doCheck = true;
 	configureFlags = "--enable-profiling --enable-check-lisp-object-type --with-modules --with-file-notification=no CC=${pkgs.gcc48}/bin/gcc" ;
 	checkPhase = ''
