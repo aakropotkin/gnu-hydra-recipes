@@ -22,7 +22,7 @@ let
   buildInputsFrom = pkgs: with pkgs; [ xz perl m4 ];
 
   tex = with pkgs; texlive.combine {
-    inherit (texlive) scheme-small;
+    inherit (texlive) scheme-full;
   };
 
   succeedOnFailure = true;
