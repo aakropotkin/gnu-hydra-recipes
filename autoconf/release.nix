@@ -21,7 +21,9 @@ let
 
   buildInputsFrom = pkgs: with pkgs; [ xz perl m4 ];
 
-  texLive = pkgs.texLiveAggregationFun { paths = [ pkgs.texLive pkgs.texLiveCMSuper ]; } ;
+  tex = with pkgs; texlive.combine {
+    inherit (texlive) scheme-small;
+  };
 
   succeedOnFailure = true;
   keepBuildDirectory = true;
@@ -75,9 +77,11 @@ let
       pkgs.releaseTools.nixBuild {
         name = "autoconf-manual";
         src = tarball;
-        buildInputs =
-          [ pkgs.texinfo texLive ]
-          ++ (buildInputsFrom pkgs);
+        buildInputs = with pkgs; [
+          texinfo
+          tex
+          texi2html
+        ] ++ (buildInputsFrom pkgs);
 
         buildPhase = "make html pdf";
         doCheck = false;
